@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -rm --name="cron" trashtravel/docker-backup
+docker run -it --rm --name="cron" trashtravel/docker-cron

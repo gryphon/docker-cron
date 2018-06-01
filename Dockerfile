@@ -1,8 +1,10 @@
 # Base image:
 FROM alpine:3.7
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl bash
 
-RUN echo "0  4  *  *  *    /tasks/tasks.sh > /dev/stdout" > /etc/crontabs/root
+ADD init.sh /tasks/init.sh
 
-CMD crond -l 2 -f
+WORKDIR /tasks
+
+CMD /tasks/init.sh
